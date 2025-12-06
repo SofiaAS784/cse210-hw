@@ -5,13 +5,26 @@ public class SimpleGoal : Goal
     {
         _isComplete = false;
     }
-    public override void RecordEvent()
+    public SimpleGoal(string name, string description, int points, bool isComplete) : base(name, description, points)
     {
-        throw new NotImplementedException();
+        _isComplete = isComplete;
+    }
+    public override int RecordEvent()
+    {
+        _isComplete = true;
+        int pointsEarned = _points;
+        return pointsEarned;
     }
     public override bool IsComplete()
     {
-        throw new NotImplementedException();
+        if (_isComplete == true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     public override string GetStringRepresentation()
     {

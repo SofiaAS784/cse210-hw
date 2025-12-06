@@ -9,17 +9,47 @@ public class ChecklistGoal : Goal
         _target = target;
         _bonus = bonus;
     }
-    public override void RecordEvent()
+    public ChecklistGoal(string name, string description, int points, int target, int bonus, int amountCompleted) : base(name, description, points)
     {
-        throw new NotImplementedException();
+        _amountCompleted = amountCompleted;
+        _target = target;
+        _bonus = bonus;
+    }
+    public override int RecordEvent()
+    {
+        _amountCompleted++;
+        if (IsComplete() == true)
+        {
+            int pointsEarned = _points + _bonus;
+            return pointsEarned;
+        }
+        else
+        {
+            int pointsEarned = _points;
+            return pointsEarned;
+        }
     }
     public override bool IsComplete()
     {
-        throw new NotImplementedException();
+        if (_amountCompleted == _target)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     public override string GetDetailsString()
     {
-        return $"[ ] {_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
+        if (IsComplete() == true)
+        {
+            return $"[X] {_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
+        }
+        else
+        {
+            return $"[ ] {_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
+        }
     }
     public override string GetStringRepresentation()
     {

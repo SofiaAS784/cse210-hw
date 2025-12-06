@@ -1,0 +1,5 @@
+1150
+SimpleGoal:Write a essay,Write a personal essay for college,250,True
+EternalGoal:Read the scriptures,Read the scriptures for at least 10 minutes,50
+ChecklistGoal:Prepare a class,Prepare classes for institute,100,500,3,3
+SimpleGoal:Finish a book,Finish the book of mormon,80,False

@@ -3,13 +3,14 @@ public class EternalGoal : Goal
     public EternalGoal(string name, string description, int points) : base(name, description, points)
     {
     }
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-        throw new NotImplementedException();
+        int pointsEarned = _points;
+        return pointsEarned;
     }
     public override bool IsComplete()
     {
-        throw new NotImplementedException();
+        return false;
     }
     public override string GetStringRepresentation()
     {
